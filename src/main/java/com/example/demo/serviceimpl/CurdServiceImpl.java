@@ -3,22 +3,36 @@ package com.example.demo.serviceimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.CurdDTO;
+import com.example.demo.entity.Curd;
+import com.example.demo.repository.CurdRepository;
 import com.example.demo.service.CurdService;
 
 @Service
 public class CurdServiceImpl implements CurdService{
 
+	@Autowired
+	 
+	CurdRepository curdRepository;
+	
 	@Override
-	public List<CurdDTO> getall() {
+	public List<Curd> getallcurd() {
 		// TODO Auto-generated method stub
-		List<CurdDTO> cruddtolist = new ArrayList<>();
-		cruddtolist.add(new CurdDTO("test", "123"));
-		cruddtolist.add(new CurdDTO("test1", "1234"));
-		return cruddtolist;
+		return curdRepository.findAll();
 	}
 
 
+	
+	@Override
+	public Curd createdata(Curd curd) {
+		
+		return curdRepository.save(curd);
+	}
+
+	
+
+	
 }

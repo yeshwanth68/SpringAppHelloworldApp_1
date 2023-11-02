@@ -2,12 +2,14 @@ package com.example.demo.service;
 
 import java.util.List;
 
-import com.example.demo.dto.CurdDTO;
+
+import com.example.demo.entity.Curd;
 
 public interface CurdService {
 	
 	
-	List<CurdDTO> getall();
+	List<Curd> getallcurd();
+	Curd createdata(Curd curd);
 	
 	
 

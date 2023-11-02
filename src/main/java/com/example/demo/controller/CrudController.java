@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.CurdDTO;
+import com.example.demo.entity.Curd;
 import com.example.demo.service.CurdService;
 
 @RestController
@@ -19,11 +19,18 @@ public class CrudController {
 	
 	@GetMapping("/getall")
 	
-	public List<CurdDTO> getall(){
+	public List<Curd> getall(){
 		
-		return curdService.getall();
+		return curdService.getallcurd();
 		
 	}
 	
+	@GetMapping("/createdata")
+	public Curd createdata(Curd curddto)
+	{
+		
+		return curdService.createdata(curddto);
+		
+	}
 
 }
